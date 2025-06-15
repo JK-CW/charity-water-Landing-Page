@@ -2,15 +2,13 @@
 
 Primary Colors:
 - Yellow:     #FFC907
-- Blue:       #2E9DF7
+- Blue:       #003366
 
 Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
+- Light Yellow: #FFF7E1
+- Light Blue:   #77A8BB
+- Gray:         #CBCCD1
+- Near-Black:   #1A1A1A
 
 Fonts:
 - Proxima Nova
@@ -19,74 +17,197 @@ Fonts:
 */
 
 /* 
-  Charity: Water Landing Page Styles
+  charity: water Landing Page Styles
   This CSS uses the provided color palette and beginner-friendly styles.
 */
 
 /* Set up the main font and background color for the whole page */
 body {
   background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #CBCCD1;
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
-  background: #fff; /* White background for sections */
+  background: #fff7E1; /* White background for sections */
   border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
+  box-shadow: 0 2px 8px #00336612; /* Use primary blue with alpha for shadow */
+  margin: 24px 10px;
   padding: 24px 16px;
+}
+
+/* Header styles */
+.main-header {
+  background-color: #FFF7E1; /* Light yellow */
+  display: flex;             /* Place items in a row */
+  align-items: center;       /* Vertically center items */
+  justify-content: space-between; /* Logo left, button right */
+  padding: 12px 32px;
+  box-sizing: border-box;
+}
+
+/* Logo styles */
+.cw-logo {
+  height: 48px;
+  /* Add some space to the right of the logo */
+  margin-right: 12px;
+}
+
+/* Donate Now button in header */
+.donate-now-btn {
+  background-color: #FFC907; /* Yellow */
+  color: #1A1A1A;            /* Near-black text */
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  border: none;
+  box-shadow: 0 2px 8px #FFC9071A; /* Use yellow with alpha for shadow */
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.donate-now-btn:hover {
+  background-color: #FFF7E1; /* Light yellow on hover */
 }
 
 /* Hero Section Styles */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
+  position: relative;
+  background-image: url('img/CharityWater-08586.jpg');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  min-height: 520px;
+  display: flex;
+  align-items: stretch;
+  border-radius: 0 0 16px 16px;
+  /* Add a dark overlay using a pseudo-element */
 }
 
-/* Make the headline bold and modern */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #1A1A1A80; /* Near-black with alpha for overlay */
+  border-radius: 0 0 16px 16px;
+  z-index: 1;
+}
+
+/* Hero content aligned to the right */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin-left: auto; /* Push content to the right */
+  max-width: 480px;
+  padding: 60px 40px 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align content to the right */
+  text-align: right;
+}
+
+/* Main headline styles */
 .hero h1 {
-  font-size: 2.5em;
+  color: #FFF7E1; /* Light yellow for headline */
+  font-size: 2.6em;
   font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  margin-bottom: 18px;
+  text-shadow: 0 2px 8px #1A1A1A2E; /* Near-black with alpha */
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+/* Subheadline styles */
+.hero-subheadline {
+  color: #FFC907; /* Yellow */
+  font-size: 1.15em;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 4px #1A1A1A1F; /* Near-black with alpha */
+}
+
+/* Donation box styles */
+.donation-box {
+  background: #FFF7E1E6; /* Light yellow with alpha for overlay */
+  border-radius: 10px;
+  padding: 22px 20px 18px 20px;
+  box-shadow: 0 2px 8px #CBCCD11A; /* Gray with alpha for shadow */
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Donation amount buttons */
+.donation-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  justify-content: flex-end;
+}
+
+/* Individual donation button */
+.donation-btn {
+  background-color: #FFF7E1; /* Light yellow */
+  color: #1A1A1A;            /* Near-black text */
+  border: none;
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 4px;
+}
+
+.donation-btn.selected,
+.donation-btn:hover {
+  background-color: #FFC907; /* Yellow for selected/hover */
+  color: #1A1A1A;
+}
+
+/* Make Your Impact Now button */
+.impact-btn {
+  background-color: #FFC907; /* Yellow */
+  color: #1A1A1A;            /* Near-black text */
+  border: none;
+  border-radius: 6px;
+  padding: 14px 32px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 2px 8px #FFC9071A; /* Yellow with alpha */
+  transition: background 0.2s;
+}
+
+.impact-btn:hover {
+  background-color: #FFF7E1; /* Light yellow on hover */
+}
+
+/* Use only near-black or grey for text in hero section */
+.hero,
+.hero h1,
+.hero-subheadline,
+.donation-btn,
+.impact-btn {
+  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
 }
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
+  background-color: #77A8BB; /* Secondary Light Blue */
+  color: #1A1A1A;            /* Near-black text */
   text-align: center;
   padding: 30px 20px;
 }
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #003366; /* Primary blue */
   margin-top: 0;
   font-weight: bold;
 }
@@ -94,7 +215,7 @@ h2 {
 /* Call-to-Action Section Styles */
 .call-to-action {
   background-color: #FFC907; /* Primary Yellow */
-  color: #222;
+  color: #1A1A1A;            /* Near-black text */
   text-align: center;
   padding: 30px 20px;
 }
@@ -105,29 +226,28 @@ h2 {
   max-width: 320px;
   border-radius: 10px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  box-shadow: 0 2px 8px #0033661A; /* Use closest blue with alpha */
 }
 
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
+  background-color: #FFC907; /* Yellow */
+  color: #1A1A1A;            /* Near-black text */
   padding: 14px 32px;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
+  box-shadow: 0 2px 8px #FFC9071A; /* Yellow with alpha */
   transition: background 0.3s, transform 0.2s;
   border: none;
   cursor: pointer;
 }
 
-/* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #FFF7E1; /* Light yellow */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
@@ -162,8 +282,7 @@ section {
 
   /* Make story and call-to-action sections have less padding */
   .story,
-  .call-to-action,
-  .donation-section {
+  .call-to-action {
     padding: 14px 8px;
   }
 
@@ -194,5 +313,42 @@ section {
 
   .impact-image {
     width: 300px;
+  }
+}
+
+/* Responsive adjustments for hero section */
+@media (max-width: 900px) {
+  .hero-content {
+    max-width: 100%;
+    padding: 40px 10px 40px 0;
+  }
+  .donation-box {
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 8px;
+  }
+  .cw-logo {
+    height: 38px;
+    margin-bottom: 8px;
+  }
+  .hero-content {
+    padding: 24px 4px 24px 0;
+    max-width: 100%;
+    align-items: flex-end;
+  }
+  .hero h1 {
+    font-size: 1.3em;
+  }
+  .donation-box {
+    padding: 14px 8px 10px 8px;
+  }
+  .donation-amounts {
+    gap: 6px;
   }
 }

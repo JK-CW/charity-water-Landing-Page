@@ -7,12 +7,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+    <!-- Header with logo and Donate Now button -->
+    <header class="main-header">
+        <!-- Logo on the left -->
+        <img src="img/cw_logo-2.png" alt="charity: water logo" class="cw-logo">
+        <!-- Donate Now button on the right -->
+        <a href="#" class="donate-now-btn">Donate Now</a>
+    </header>
+
+    <!-- Hero Section: Main banner with background image and overlay content -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+        <!-- Overlay for content, aligned to the right -->
+        <div class="hero-content">
+            <!-- Main headline -->
+            <h1>You Can Give Clean Water to Someone in Need Today!</h1>
+            <!-- Subheadline -->
+            <p class="hero-subheadline">
+                100% of your donation will go directly to providing clean water to people and families around the world.
+            </p>
+            <!-- Donation box -->
+            <div class="donation-box">
+                <!-- Donation amount buttons -->
+                <div class="donation-amounts">
+                    <!-- Light yellow buttons, one yellow selected -->
+                    <button class="donation-btn">$5 USD</button>
+                    <button class="donation-btn">$100 USD</button>
+                    <button class="donation-btn selected">$20 USD</button>
+                    <button class="donation-btn">$40 USD</button>
+                    <button class="donation-btn">$10 USD</button>
+                    <button class="donation-btn">$200 USD</button>
+                </div>
+                <!-- Make Impact button (yellow) -->
+                <button class="impact-btn">Make Your Impact Now</button>
+            </div>
+        </div>
     </section>
 
     <!-- Story Section: This tells the story of the nonprofit -->

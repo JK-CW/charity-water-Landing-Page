@@ -9,15 +9,13 @@ With help from AI to jumpstart your layout, you'll focus on structuring your con
 
 ### Primary Colors:
 - Yellow:     `#FFC907`
-- Blue:       `#2E9DF7`
+- Blue:       `#003366`
 
 ### Secondary Colors:
-- Light Blue: `#8BD1CB`
-- Green:      `#4FCB53`
-- Orange:     `#FF902A`
-- Red:        `#F5402C`
-- Dark Green: `#159A48`
-- Pink:       `#F16061`
+- Light Yellow: `#FFF7E1`
+- Light Blue:   `#77A8BB`
+- Gray:         `#CBCCD1`
+- Near-Black:   `#1A1A1A`
 
 ### Fonts:
 - Proxima Nova

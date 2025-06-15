@@ -27,7 +27,7 @@ body {
   font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #CBCCD1;
+  color: #1A1A1A;
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -202,17 +202,10 @@ section {
   font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
 }
 
-/* Story Section Styles */
-.story {
-  background-color: #77A8BB; /* Secondary Light Blue */
-  color: #1A1A1A;            /* Near-black text */
-  text-align: center;
-  padding: 30px 20px;
-}
-
 /* Add accent color to section headings */
 h2 {
-  color: #003366; /* Primary blue */
+  color: #1A1A1A; /* Secondary near-black */
+  text-align: center;
   margin-top: 0;
   font-weight: bold;
 }
@@ -227,8 +220,10 @@ h2 {
 
 /* Style the impact story image */
 .impact-image {
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-  max-width: 320px;
+  max-width: 45%;
   border-radius: 10px;
   margin-bottom: 16px;
   box-shadow: 0 2px 8px #0033661A; /* Use closest blue with alpha */
@@ -256,6 +251,23 @@ h2 {
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
+.impact-story {
+  background-color: #77A8BB80; /* Light blue tint */
+}
+
+.impact-content {
+  display: flex;           /* Place items in a row */
+  align-items: center;     /* Vertically center items */
+  justify-content: center; /* Center the whole group */
+  gap: 28px;               /* Space between image and text */
+  text-align: left;
+  margin: 0 5%;
+}
+
+.impact-content p {
+  font-size: 30px;
+}
+
 /* Add some spacing between sections */
 section {
   margin-bottom: 20px;
@@ -267,22 +279,70 @@ section {
   like phones (small screens) and computers (large screens).
 */
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
+/* Responsive adjustments screens under 900px to adjust backgrounds and fonts*/
+@media (max-width: 900px) {
+  .hero {
+    background-image: url('img/CroppedCharityWater-08586.jpg');
+    background-size: contain;
+  }
+  
+  /* Adjust hero content to take full width and center text */
+  .hero-content {
+      margin-right: 0;
+      text-align: center;
+      padding: 2px 2px 2px 0;
+      max-width: 100%;
+      min-height: 0;
+      align-items: flex-end;
+      margin-left: 68%;
+      margin-top: 5%;
+  }
+
+  
+  .impact-content p {
+    font-size: 3vw;
+  }
+}
+
+/* This media query applies styles when the screen is 800px wide or less (like on most phones) */
+@media (max-width: 800px) {
   /* Make hero section padding smaller on small screens */
   .hero {
-    padding: 32px 8px;
-    font-size: 1em;
+    min-height: 97vw;
+    max-height: 100%;
   }
 
   /* Make headline font size smaller so it fits on small screens */
   .hero h1 {
-    font-size: 1.4em;
+    font-size: 4vw;
+    margin: 0;
   }
 
   /* Make subheadline font size smaller */
   .hero p {
-    font-size: 1em;
+    font-size: 2vw;
+    margin: 2px;
+  }
+
+  /* Adjust donation box padding */
+  .donation-box {
+    padding: 14px 8px 10px 8px;
+    max-height: 50vw;
+  }
+
+  /* Stack donation amounts vertically and center them */
+  .donation-amounts {
+    max-width: 100%;
+    gap: 2px;
+    max-height: 40vw;
+    justify-content: center;
+  }
+
+  /* Make donation buttons smaller to fit better on small screens */
+  .donation-btn {
+    width: 80px;
+    padding: 2px 2px;
+    font-size: 3vw;
   }
 
   /* Make story and call-to-action sections have less padding */
@@ -291,81 +351,49 @@ section {
     padding: 14px 8px;
   }
 
-  /* Make impact story image smaller and stack above the text */
+  /* Stack header items vertically and center them */
+  .main-header {
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px 8px;
+  }
+
+  .impact-btn {
+    padding: 2px 6px;
+    font-size: 3vw;
+    max-width: 90%;
+  }
+
+  /* Adjust logo size and spacing */
+  .cw-logo {
+    height: 38px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    margin-right:auto;
+  }
+
+  .donate-now {
+    margin-left: auto;
+  }
+
   .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
+    display:contents;
   }
 
   .impact-content p {
-    color: #1A1A1A
+    font-size: 3vw;
   }
 
   .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
-
-  .donation-amounts {
     max-width: 100%;
-    gap: 6px;
-    justify-content: center;
-  }
-  .donation-btn {
-    width: 90px;
-    font-size: 0.95em;
   }
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .impact-image {
-    width: 300px;
-  }
-}
-
-/* Responsive adjustments for hero section */
-@media (max-width: 900px) {
-  .hero-content {
-    max-width: 100%;
-    margin-right: 0;
-    padding: 32px 8px 32px 8px;
-    align-items: center;
-    text-align: center;
-    min-height: unset;
-  }
-}
-
-@media (max-width: 600px) {
-  .main-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 8px;
-  }
+@media (max-width: 359px) {
   .cw-logo {
-    height: 38px;
-    margin-bottom: 8px;
-  }
-  .hero-content {
-    padding: 24px 4px 24px 0;
-    max-width: 100%;
-    align-items: flex-end;
-  }
-  .hero h1 {
-    font-size: 1.3em;
-  }
-  .donation-box {
-    padding: 14px 8px 10px 8px;
+      content: url('img/cw_logo.png');
+      max-width: 100%;
+      height: fit-content;
   }
 }

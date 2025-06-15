@@ -23,7 +23,7 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  background-color: #FFF7E180; /* Soft light yellow */
   font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -41,7 +41,7 @@ section {
 
 /* Header styles */
 .main-header {
-  background-color: #FFF7E1; /* Light yellow */
+  background-color: #FFF7E180; /* Light yellow */
   display: flex;             /* Place items in a row */
   align-items: center;       /* Vertically center items */
   justify-content: space-between; /* Logo left, button right */
@@ -80,35 +80,28 @@ section {
   position: relative;
   background-image: url('img/CharityWater-08586.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: 70% center; /* Shift background to show more of the left side */
   background-repeat: no-repeat;
-  min-height: 520px;
+  min-height: 660px;
   display: flex;
   align-items: stretch;
   border-radius: 0 0 16px 16px;
-  /* Add a dark overlay using a pseudo-element */
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #1A1A1A80; /* Near-black with alpha for overlay */
-  border-radius: 0 0 16px 16px;
-  z-index: 1;
-}
-
-/* Hero content aligned to the right */
+/* Hero content aligned to the right and vertically centered */
 .hero-content {
   position: relative;
   z-index: 2;
-  margin-left: auto; /* Push content to the right */
+  margin-left: 60%;         /* Push content to the right */
+  margin-right: 10%;        /* Add space from the right edge for better placement */
   max-width: 480px;
-  padding: 60px 40px 60px 0;
+  padding: 0px 0 60px 0;    /* Remove right padding, keep top/bottom */
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align content to the right */
-  text-align: right;
+  align-items: center;     /* Center content horizontally */
+  text-align: center;      /* Center text inside the content box */
+  justify-content: center;   /* Vertically center content */
+  min-height: 520px;
 }
 
 /* Main headline styles */
@@ -130,9 +123,9 @@ section {
 
 /* Donation box styles */
 .donation-box {
-  background: #FFF7E1E6; /* Light yellow with alpha for overlay */
+  background: #FFF7E180; /* Light yellow with alpha for overlay */
   border-radius: 10px;
-  padding: 22px 20px 18px 20px;
+  padding: 12px 10px 12px 10px;
   box-shadow: 0 2px 8px #CBCCD11A; /* Gray with alpha for shadow */
   margin-bottom: 18px;
   display: flex;
@@ -142,25 +135,37 @@ section {
 
 /* Donation amount buttons */
 .donation-amounts {
+  /* Arrange buttons in at most 3 columns using flex-wrap and fixed width */
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-left: 5px;
   margin-bottom: 16px;
-  justify-content: flex-end;
+  justify-content: center;
+  max-width: 330px; /* 3 buttons * 100px + 2 gaps */
 }
 
 /* Individual donation button */
 .donation-btn {
   background-color: #FFF7E1; /* Light yellow */
-  color: #1A1A1A;            /* Near-black text */
+  color: #CBCCD1;            /* Grey text by default */
   border: none;
   border-radius: 6px;
-  padding: 12px 18px;
+  padding: 12px 6px;
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
   margin-bottom: 4px;
+  width: 100px; /* Fixed width for even columns */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Make sure only 3 buttons per row */
+.donation-amounts .donation-btn:nth-child(3n+1) {
+  /* Start a new row after every 3rd button */
+  margin-left: 0;
 }
 
 .donation-btn.selected,
@@ -179,7 +184,7 @@ section {
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 6px;
+  margin: auto;
   box-shadow: 0 2px 8px #FFC9071A; /* Yellow with alpha */
   transition: background 0.2s;
 }
@@ -194,7 +199,7 @@ section {
 .hero-subheadline,
 .donation-btn,
 .impact-btn {
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
 }
 
 /* Story Section Styles */
@@ -292,9 +297,23 @@ section {
     text-align: center;
   }
 
+  .impact-content p {
+    color: #1A1A1A
+  }
+
   .impact-image {
     width: 90%;    /* Make image take up most of the width */
     max-width: 220px;
+  }
+
+  .donation-amounts {
+    max-width: 100%;
+    gap: 6px;
+    justify-content: center;
+  }
+  .donation-btn {
+    width: 90px;
+    font-size: 0.95em;
   }
 }
 
@@ -320,10 +339,11 @@ section {
 @media (max-width: 900px) {
   .hero-content {
     max-width: 100%;
-    padding: 40px 10px 40px 0;
-  }
-  .donation-box {
-    align-items: stretch;
+    margin-right: 0;
+    padding: 32px 8px 32px 8px;
+    align-items: center;
+    text-align: center;
+    min-height: unset;
   }
 }
 
@@ -347,8 +367,5 @@ section {
   }
   .donation-box {
     padding: 14px 8px 10px 8px;
-  }
-  .donation-amounts {
-    gap: 6px;
   }
 }

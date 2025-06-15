@@ -30,12 +30,41 @@
                 <!-- Donation amount buttons -->
                 <div class="donation-amounts">
                     <!-- Light yellow buttons, one yellow selected -->
-                    <button class="donation-btn">$5 USD</button>
-                    <button class="donation-btn">$100 USD</button>
+                    <button class="donation-btn"> $5 USD </button>
+                    <button class="donation-btn">$10 USD</button>
                     <button class="donation-btn selected">$20 USD</button>
                     <button class="donation-btn">$40 USD</button>
-                    <button class="donation-btn">$10 USD</button>
+                    <button class="donation-btn">$100 USD</button>
                     <button class="donation-btn">$200 USD</button>
+                    <!-- Script to handle donation button selection -->
+                    <script>
+                    // Get all donation amount buttons
+                    var donationButtons = document.querySelectorAll('.donation-btn');
+                    var currentlySelected = document.querySelector('.donation-btn.selected');
+                    // Loop through each button and assign listener functions
+                    donationButtons.forEach(function(btn) {
+                        // on mouseover, temporarily highlight the button
+                        btn.addEventListener('mouseover', function() {
+                            // Highlight current button
+                            btn.className = 'donation-btn selected';
+                            // Unhighlight actual selected button
+                            currentlySelected.className = 'donation-btn';
+                        });
+                        
+                        // on mouseout restore the actual selection
+                        btn.addEventListener('mouseout', function() {
+                            // Unhighlight current button
+                            btn.className = 'donation-btn';
+                            // Restore the true selected button
+                            currentlySelected.className = 'donation-btn selected';
+                        });
+
+                        // on click select the new button
+                        btn.addEventListener('click', function() {
+                            currentlySelected = btn;
+                        });
+                    });
+                    </script>
                 </div>
                 <!-- Make Impact button (yellow) -->
                 <button class="impact-btn">Make Your Impact Now</button>
